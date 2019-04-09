@@ -12,3 +12,21 @@
     font-size: 2rem;
   }
 }
+
+.NavbarContainer {
+  text-align: left;
+  display: grid;
+  align-content: middle;
+  justify-content: left;
+}
+
+.Name {
+  text-align: right;
+  display: grid;
+  align-content: middle;
+  justify-content: right;
+  span {
+    color: white;
+    padding-right: 20px;
+  }
+}
