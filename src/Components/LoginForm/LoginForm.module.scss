@@ -1,0 +1,44 @@
+.LoginForm {
+  padding: 20px;
+  width: 100%;
+  max-width: 425px;
+  min-height: 100vh;
+  left: auto;
+  right: auto;
+  text-align: left;
+}
+
+.Title {
+  margin-bottom: 40px;
+}
+
+.LoginBtn {
+  width: 100%;
+  background-color: #8033e3;
+}
+
+.RedDot {
+  color: red;
+  padding-left: 3px;
+}
+
+.Body {
+
+}
+
+.separator {
+  margin-top: 20px;
+  height: 20px;
+  width: 100%;
+  display: block;
+  border-top: 2px solid #f4f4f4;
+}
+
+.Footer {
+  display: block;
+}
+
+.CreateNewBtn {
+  background-color: #f0f3f7;
+  width: 100%;
+}

@@ -6,8 +6,7 @@ import {
 
 export default function LoginLayout({children}) {
   return (
-    <Container>
-      Login Loyout!
+    <Container fluid>
       { children }
     </Container>
   )

@@ -10,7 +10,6 @@ import styles from './MainLayout.module.scss';
 export default function Main({ children }) {
   return (
     <Container fluid className={styles.MainLayout}>
-      Main Layout!
       { children }
     </Container>
   )
