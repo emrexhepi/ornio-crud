@@ -2,3 +2,8 @@
 // USER ACTIONS
 export const SET_USER = "SET_USER";
 export const SET_TOKEN = "SET_TOKEN";
+
+// ALERT ACTIONS
+export const SET_EVENTS_TYPES = "SET_EVENTS_TYPES";
+export const SET_EVENTS_METHODS = "SET_EVENTS_METHODS";
+export const SET_EVENTS = "SET_EVENTS";

@@ -6,10 +6,8 @@
   left: auto;
   right: auto;
   text-align: left;
-}
-
-.Title {
-  margin-bottom: 40px;
+  display: grid;
+  align-content: center;
 }
 
 .LoginBtn {

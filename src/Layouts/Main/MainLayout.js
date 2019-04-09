@@ -9,7 +9,7 @@ import styles from './MainLayout.module.scss';
 
 export default function Main({ children }) {
   return (
-    <Container fluid className={styles.MainLayout}>
+    <Container fluid className={`${styles.MainLayout} container-fullwidth`}>
       { children }
     </Container>
   )

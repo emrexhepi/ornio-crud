@@ -1,7 +1,7 @@
 import axios from '../axios';
 
 import {
-  // SET_USER,
+  SET_USER,
   SET_TOKEN
 } from './actionTypes';
 
@@ -15,6 +15,22 @@ export const initUser = () => (dispatch) => {
       type: SET_TOKEN,
       payload: localStorage.getItem('token')
     });
+  }
+}
+
+export const getMe = (callback = null) => async function (dispatch) {
+  try {
+    const response = await axios.get('/users/me');
+
+    dispatch({
+      type: SET_USER,
+      payload: response.data
+    });
+  } catch (e) {
+    console.error(e);
+    if(callback) {
+      callback();
+    }
   }
 }
 

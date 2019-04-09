@@ -1,0 +1,17 @@
+.PlusBtn {
+  background-color: #2ae4a5;
+  color: white;
+  display: grid;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  justify-items: center;
+  align-items: center;
+  float: right;
+
+  span {
+    margin-top: -10px;
+    font-size: 2.5rem;
+  }
+}

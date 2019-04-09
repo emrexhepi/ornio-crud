@@ -34,7 +34,6 @@ class LoginForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log();
   }
 
   handleSubmit = (e) => {
@@ -63,9 +62,6 @@ class LoginForm extends Component {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address<span className={styles.RedDot}>*</span></Form.Label>
                 <Form.Control name="email" type="email" placeholder="Enter email" value={this.state.email} required onChange={ this.handleChange }/>
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-                </Form.Text>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">

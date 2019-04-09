@@ -1,0 +1,24 @@
+.CreateEventModa.module {
+
+}
+
+.Label {
+  font-size: 0.6rem !important;
+}
+
+.RedDot {
+  color: red;
+  padding-left: 3px;
+}
+
+.Dropdown {
+  Button {
+    width: 100%;
+    background-color: white;
+    color: black;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+}

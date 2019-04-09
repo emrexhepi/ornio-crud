@@ -1,0 +1,21 @@
+.Table {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  border-top: none;
+
+  th,td  {
+    text-align: left;
+    border-bottom: none !important;
+    padding-left: 20px;
+  }
+
+  thead th {
+    border-top: none !important;
+  }
+
+  .TdLast {
+    text-align: right !important;
+    padding-right: 20px;
+  }
+}

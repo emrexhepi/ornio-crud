@@ -8,7 +8,6 @@ export const setupAxios = (store) => {
   // Add a request interceptor
   axios.interceptors.request.use(function (config) {
     const token = store.getState().user.token;
-    console.log(token);
     config.headers.Authorization = `Bearer ${token}`;
     return config;
   }, function (error) {
