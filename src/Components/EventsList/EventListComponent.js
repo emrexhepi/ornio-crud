@@ -7,15 +7,15 @@ import {
 import styles from './EventList.module.scss';
 
 function EventListComponent(props) {
-  
-  function renderList() {
+
+  const renderList = () => {
     if(!props || props == null) {
       return null;
     }
 
     if(props !== null && props.list && Array.isArray(props.list))
       return props.list.map((item) => (
-        <tr key={item.id}>
+        <tr key={item.id} onClick={()=> props.handleDelete(item.id)}>
           <td>{ item.alert_event.name }</td>
           <td>{ item.alert_method.name }</td>
           <td>{ item.value }</td>

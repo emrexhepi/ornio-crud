@@ -20,7 +20,8 @@ import {
   getEventTypes,
   getEventMethods,
   getAllEvents,
-  createEvent
+  createEvent,
+  deleteEvent
 } from '../../actions/eventActions';
 
 import {
@@ -76,6 +77,14 @@ class DashboardPage extends Component {
     });
   }
 
+  handleDeleteEvent = (id) => {
+    this.props.deleteEvent(id, (response)=> {
+      if(response.success) {
+        this.props.getAllEvents();
+      }
+    });
+  }
+
   render() {
     return (
       <>
@@ -99,6 +108,7 @@ class DashboardPage extends Component {
                 this.props && this.props.eventList && 
                   <EventList
                     list={this.props.eventList}
+                    handleDelete={this.handleDeleteEvent}
                   />
               }
             </DashboardLayout>
@@ -123,6 +133,7 @@ const mapDispatchToProps = (dispatch) => ({
   getEventTypes: ()=> dispatch(getEventTypes()),
   getEventMethods: ()=> dispatch(getEventMethods()),
   createEvent: (event, callback)=> dispatch(createEvent(event, callback)),
+  deleteEvent: (id, callback) => dispatch(deleteEvent(id, callback))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DashboardPage));

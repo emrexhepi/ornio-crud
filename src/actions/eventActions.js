@@ -66,3 +66,19 @@ export const createEvent = (event, callback = null ) => async function (dispatch
     }
   }
 }
+
+export const deleteEvent = (id, callback = null ) => async function (dispatch) {
+  try {
+    await axios.delete(`/alerts/${id}`);
+    callback({
+      success: true
+    })
+  } catch (e) {
+    console.error(e);
+    if(callback) {
+      callback({
+        success: false
+      })
+    }
+  }
+}
