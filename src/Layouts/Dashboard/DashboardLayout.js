@@ -4,11 +4,15 @@ import {
   Container
 } from 'react-bootstrap';
 
+import Header from '../../Components/Header/HeaderComponent';
+
 export default function DashboardLayout({children}) {
   return (
-    <Container>
-      Dashboard Loyout!
-      { children }
-    </Container>
+    <>
+      <Header />
+      <Container>
+       { children }
+      </Container>
+    </>
   )
 }

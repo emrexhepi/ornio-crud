@@ -13,14 +13,20 @@ import LoginPage from './Pages/Login/LoginPage';
 import RegisterPage from './Pages/Register/RegisterPage';
 import DashboardPage from './Pages/Dashboard/DashboardPage';
 
+// import actions
+import { initUser } from './actions/userActions';
+
 class App extends Component {
+  componentWillMount(){
+    this.props.initUser();
+  }
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <MainLayout>
             <Switch>
-            <Route path="/login" component={LoginPage} />
+              <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
               <Route path="/dashboard" component={DashboardPage} />
               <Route exact path="/*" render={
@@ -37,11 +43,11 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  token: state.user.token
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  initUser: () => dispatch(initUser())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

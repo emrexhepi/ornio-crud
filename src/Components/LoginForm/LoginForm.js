@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { login } from '../../actions/userActions';
 
 // import styles
 import styles from './LoginForm.module.scss';
@@ -9,16 +13,56 @@ import {
 } from 'react-bootstrap';
 
 class LoginForm extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: 'em.rexhepi@gmail.com',
+      password: 'papasa12/.',
+      submitDisabled: false
+    }
+  }
+
+  componentDidUpdate() {
+    if(this.props.token) {
+      this.props.history.push(`/dashboard`);
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    console.log();
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      submitDisabled: true
+    })
+
+    this.props.login(this.state.email, this.state.password, () => {
+      alert('Your username or password is incorrect! Please try again!');
+      this.setState({
+        submitDisabled: false
+      })
+    });
+
+  }
+
   render() {
     return (
       <Row className="justify-content-center justify-align-center">
         <Col xs={12} md={6} className={`${styles.LoginForm} align-middle`}>
           <h3 className={styles.Title}>Sign in</h3>
           <div className={styles.Body}>
-            <Form >
+            <Form autoComplete="true" onSubmit={this.handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address<span className={styles.RedDot}>*</span></Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control name="email" type="email" placeholder="Enter email" value={this.state.email} required onChange={ this.handleChange }/>
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
@@ -26,9 +70,9 @@ class LoginForm extends Component {
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password<span className={styles.RedDot}>*</span></Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control autoComplete="true" name="password" type="password" placeholder="Password" value={this.state.password} required onChange={ this.handleChange } />
               </Form.Group>
-              <Button variant="primary" type="submit" className={styles.LoginBtn}>
+              <Button variant="primary" type="submit" className={styles.LoginBtn} disabled={this.state.submitDisabled}>
                 Submit
               </Button>
             </Form>
@@ -45,4 +89,12 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+const mapStateToProps = (state) => ({
+  token: state.user.token
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  login: (email, password, callback)=> dispatch(login(email, password, callback))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
